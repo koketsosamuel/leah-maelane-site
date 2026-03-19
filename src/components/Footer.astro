@@ -1,0 +1,271 @@
+---
+interface Props {
+  variant?: 'full' | 'simple';
+}
+
+const { variant = 'full' } = Astro.props;
+---
+
+<footer class="footer">
+  {variant === 'full' && (
+    <div class="geometric-border">
+      <span class="seg gold"></span>
+      <span class="seg copper"></span>
+      <span class="seg gold"></span>
+      <span class="seg copper"></span>
+      <span class="seg gold"></span>
+      <span class="seg copper"></span>
+      <span class="seg gold"></span>
+      <span class="seg copper"></span>
+    </div>
+  )}
+  {variant === 'simple' && (
+    <div class="footer-border-gradient"></div>
+  )}
+  <div class="footer-content">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">LEAH MAELANE</a>
+        {variant === 'full' ? (
+          <p class="footer-tagline">South African Model &middot; Storyteller &middot; Muse</p>
+        ) : (
+          <p class="footer-tagline">Celebrating African beauty and heritage</p>
+        )}
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigate</h4>
+          <a href="/">Home</a>
+          <a href="/portfolio">Portfolio</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Connect</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter / X</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+    {variant === 'full' && (
+      <div class="footer-bottom-section">
+        <div class="footer-divider-gold"></div>
+        <p class="copyright">&copy; 2026 Leah Maelane. All rights reserved.</p>
+      </div>
+    )}
+    {variant === 'simple' && (
+      <div class="footer-bottom-section">
+        <p class="footer-quote">&ldquo;Umuntu ngumuntu ngabantu&rdquo;</p>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom-row">
+          <p class="copyright">&copy; 2026 Leah Maelane. All rights reserved.</p>
+          <div class="footer-bottom-social">
+            <a href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-footer);
+    color: var(--color-light);
+    width: 100%;
+  }
+
+  .geometric-border {
+    display: flex;
+    height: 4px;
+  }
+
+  .geometric-border .seg {
+    flex: 1;
+    height: 4px;
+  }
+
+  .geometric-border .gold {
+    background: var(--color-accent);
+  }
+
+  .geometric-border .copper {
+    background: var(--color-accent-alt);
+  }
+
+  .footer-border-gradient {
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-alt) 50%, var(--color-accent));
+  }
+
+  .footer-content {
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-logo {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--color-light);
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: rgba(250, 246, 240, 0.67);
+    line-height: 1.5;
+    max-width: 280px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 48px;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-col-title {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--color-accent);
+    text-transform: uppercase;
+  }
+
+  .footer-col a {
+    font-size: 13px;
+    color: rgba(250, 246, 240, 0.8);
+    transition: color 0.3s;
+  }
+
+  .footer-col a:hover {
+    color: var(--color-light);
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .footer-social a {
+    color: rgba(250, 246, 240, 0.8);
+    transition: color 0.3s;
+  }
+
+  .footer-social a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-bottom-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .footer-divider-gold {
+    width: 60px;
+    height: 1px;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  .footer-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(250, 246, 240, 0.08);
+  }
+
+  .footer-quote {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-style: italic;
+    color: rgba(250, 248, 245, 0.25);
+  }
+
+  .footer-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .footer-bottom-social {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer-bottom-social a {
+    color: rgba(250, 248, 245, 0.5);
+    transition: color 0.3s;
+  }
+
+  .footer-bottom-social a:hover {
+    color: var(--color-accent);
+  }
+
+  .copyright {
+    font-size: 12px;
+    color: rgba(250, 248, 245, 0.38);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      padding: 32px 24px;
+    }
+
+    .footer-top {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .footer-bottom-row {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+</style>

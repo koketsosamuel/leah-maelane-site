@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+const categories = ['TRADITIONAL', 'EDITORIAL', 'COMMERCIAL', 'RUNWAY', 'BEAUTY'];
+
+const photos = [
+  // Row 1 - 2 col
+  { src: 'https://images.unsplash.com/photo-1744973123720-309ded99ac9d?w=800&q=80', title: 'Umakoti — Bridal Collection', credits: 'Photography: Zanele Muholi  ·  Styling: Thebe Magugu', alt: 'Traditional bridal' },
+  { src: 'https://images.unsplash.com/photo-1770777352873-d7eac408af7e?w=800&q=80', title: 'Heritage — Ndebele Geometry', credits: 'Photography: Trevor Stuurman  ·  Styling: Bee Diamondhead', alt: 'Ndebele geometry' },
+  // Row 2 - asymmetric
+  { src: 'https://images.unsplash.com/photo-1616186632093-549e176bc345?w=800&q=80', title: 'Vogue SA Cover — November', credits: 'Photography: David Higgs  ·  Styling: Ib Kamara', alt: 'Editorial shot', height: 480 },
+  { src: 'https://images.unsplash.com/photo-1624574966266-1cdd65b74500?w=800&q=80', title: 'Lancôme Campaign — Idôle', credits: 'Photography: Kyle Villet  ·  Makeup: Orli Meiri', alt: 'Commercial look', height: 360 },
+  { src: 'https://images.unsplash.com/photo-1614709445081-23465e205471?w=800&q=80', title: 'Essence — Golden Hour Beauty', credits: 'Photography: Kyle Villet  ·  Makeup: Orli Meiri', alt: 'Beauty close-up', height: 884 },
+  { src: 'https://images.unsplash.com/photo-1634232147178-4537df296567?w=800&q=80', title: 'Essence — Golden Hour Beauty', credits: 'Photography: Kyle Villet  ·  Makeup: Orli Meiri', alt: 'Beauty feature', height: 884 },
+  // Row 3
+  { src: 'https://images.unsplash.com/photo-1692860412138-e090edcb61c9?w=800&q=80', title: 'SAFW — Opening Night', credits: 'Photography: Simon Deiner  ·  Designer: Maxhosa Africa', alt: 'Runway shot' },
+  { src: 'https://images.unsplash.com/photo-1663044023988-6682a5e55a5e?w=800&q=80', title: 'Shweshwe Reimagined', credits: 'Photography: Aart Verrips  ·  Styling: Gavin Sobral', alt: 'Traditional modern' },
+  { src: 'https://images.unsplash.com/photo-1624574966266-1cdd65b74500?w=800&q=80', title: 'Skin Deep — Beauty Edit', credits: 'Photography: Justin Dingwall  ·  Makeup: Natasha Kutumela', alt: 'Beauty editorial' },
+];
+---
+
+<BaseLayout title="Portfolio — Leah Maelane">
+  <Navigation activeLink="PORTFOLIO" />
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1 class="page-title">Portfolio</h1>
+    <p class="page-subtitle">A curated collection of editorial, commercial & runway work</p>
+    <div class="header-divider"></div>
+  </section>
+
+  <!-- Category Filters -->
+  <section class="filters">
+    {categories.map((cat, i) => (
+      <button class:list={['filter-btn', { active: i === 0 }]} data-category={cat}>
+        {cat}
+      </button>
+    ))}
+  </section>
+
+  <!-- Photo Grid -->
+  <section class="photo-grid">
+    <!-- Row 1 -->
+    <div class="grid-row grid-row-2">
+      {photos.slice(0, 2).map(photo => (
+        <div class="photo-wrap">
+          <div class="photo-frame">
+            <img src={photo.src} alt={photo.alt} loading="lazy" />
+          </div>
+          <div class="photo-caption">
+            <p class="caption-title">{photo.title}</p>
+            <p class="caption-credits">{photo.credits}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Row 2 - Asymmetric -->
+    <div class="grid-row grid-row-asymmetric">
+      <div class="asym-left">
+        <div class="photo-wrap">
+          <div class="photo-frame" style="height: 480px;">
+            <img src={photos[2].src} alt={photos[2].alt} loading="lazy" />
+          </div>
+          <div class="photo-caption">
+            <p class="caption-title">{photos[2].title}</p>
+            <p class="caption-credits">{photos[2].credits}</p>
+          </div>
+        </div>
+        <div class="photo-wrap">
+          <div class="photo-frame" style="height: 360px;">
+            <img src={photos[3].src} alt={photos[3].alt} loading="lazy" />
+          </div>
+          <div class="photo-caption">
+            <p class="caption-title">{photos[3].title}</p>
+            <p class="caption-credits">{photos[3].credits}</p>
+          </div>
+        </div>
+      </div>
+      <div class="photo-wrap asym-right">
+        <div class="photo-frame" style="height: 884px;">
+          <img src={photos[4].src} alt={photos[4].alt} loading="lazy" />
+        </div>
+        <div class="photo-caption">
+          <p class="caption-title">{photos[4].title}</p>
+          <p class="caption-credits">{photos[4].credits}</p>
+        </div>
+      </div>
+      <div class="photo-wrap asym-right">
+        <div class="photo-frame" style="height: 884px;">
+          <img src={photos[5].src} alt={photos[5].alt} loading="lazy" />
+        </div>
+        <div class="photo-caption">
+          <p class="caption-title">{photos[5].title}</p>
+          <p class="caption-credits">{photos[5].credits}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="grid-row grid-row-3">
+      {photos.slice(6, 9).map(photo => (
+        <div class="photo-wrap">
+          <div class="photo-frame" style="height: 520px;">
+            <img src={photo.src} alt={photo.alt} loading="lazy" />
+          </div>
+          <div class="photo-caption">
+            <p class="caption-title">{photo.title}</p>
+            <p class="caption-credits">{photo.credits}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Footer variant="full" />
+</BaseLayout>
+
+<style>
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 80px 56px 48px;
+  }
+
+  .page-title {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: normal;
+    color: var(--color-text-dark);
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  .header-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--color-accent);
+  }
+
+  .filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 0 56px 48px;
+  }
+
+  .filter-btn {
+    background: none;
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--color-text-muted);
+    padding: 0;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  .filter-btn.active {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .filter-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-accent);
+  }
+
+  .filter-btn:hover {
+    color: var(--color-accent);
+  }
+
+  .photo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 56px 48px;
+  }
+
+  .grid-row {
+    display: flex;
+    gap: 24px;
+  }
+
+  .grid-row-2 .photo-wrap,
+  .grid-row-3 .photo-wrap {
+    flex: 1;
+  }
+
+  .grid-row-2 .photo-frame {
+    height: 620px;
+  }
+
+  .grid-row-asymmetric {
+    display: flex;
+    gap: 24px;
+  }
+
+  .asym-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .asym-right {
+    flex: 1;
+  }
+
+  .photo-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .photo-frame {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .photo-frame:hover img {
+    transform: scale(1.03);
+  }
+
+  .photo-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .caption-title {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    color: var(--color-text-dark);
+  }
+
+  .caption-credits {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .page-header {
+      padding: 48px 24px 32px;
+    }
+
+    .filters {
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 0 24px 32px;
+    }
+
+    .photo-grid {
+      padding: 0 24px 32px;
+    }
+
+    .grid-row,
+    .grid-row-asymmetric {
+      flex-direction: column;
+    }
+
+    .grid-row-2 .photo-frame,
+    .photo-frame {
+      height: 300px !important;
+    }
+  }
+</style>

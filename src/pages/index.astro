@@ -1,0 +1,524 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+const portfolioImages = [
+  { src: 'https://images.unsplash.com/photo-1614709445081-23465e205471?w=600&q=80', category: 'TRADITIONAL', alt: 'Traditional fashion' },
+  { src: 'https://images.unsplash.com/photo-1616186632093-549e176bc345?w=600&q=80', category: 'COMMERCIAL', alt: 'Commercial shoot' },
+  { src: 'https://images.unsplash.com/photo-1772240520016-e8639030df5c?w=600&q=80', category: 'TRADITIONAL', alt: 'Heritage fashion' },
+  { src: 'https://images.unsplash.com/photo-1663044023988-6682a5e55a5e?w=600&q=80', category: 'EDITORIAL', alt: 'Editorial' },
+  { src: 'https://images.unsplash.com/photo-1692860412138-e090edcb61c9?w=600&q=80', category: 'RUNWAY', alt: 'Runway shot' },
+  { src: 'https://images.unsplash.com/photo-1770777352873-d7eac408af7e?w=600&q=80', category: 'BEAUTY', alt: 'Beauty close-up' },
+  { src: 'https://images.unsplash.com/photo-1744973123720-309ded99ac9d?w=600&q=80', category: 'TRADITIONAL', alt: 'Traditional portrait' },
+  { src: 'https://images.unsplash.com/photo-1624574966266-1cdd65b74500?w=600&q=80', category: 'BEAUTY', alt: 'Beauty portrait' },
+  { src: 'https://images.unsplash.com/photo-1634232147178-4537df296567?w=600&q=80', category: 'COMMERCIAL', alt: 'Commercial look' },
+];
+---
+
+<BaseLayout title="Leah Maelane — Where Heritage Meets High Fashion">
+  <!-- Hero Section -->
+  <section class="hero">
+    <Navigation variant="overlay" />
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <h1 class="hero-name">LEAH MAELANE</h1>
+      <div class="hero-line"></div>
+      <p class="hero-tagline">Where Heritage Meets High Fashion</p>
+    </div>
+    <div class="scroll-hint">
+      <span class="scroll-text">SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Introduction Section -->
+  <section class="intro">
+    <div class="intro-left">
+      <div class="intro-label">
+        <div class="intro-label-line"></div>
+        <span class="intro-label-text">ABOUT LEAH</span>
+      </div>
+      <h2 class="intro-heading">I bring culture<br>to the runway.</h2>
+      <p class="intro-body">
+        Rooted in the traditions of my ancestors, I walk with the grace of queens who came before me.
+        Every step on the runway is a celebration of heritage — a bridge between the ancient artistry
+        of South Africa and the bold future of global fashion.
+      </p>
+      <div class="intro-accent"></div>
+    </div>
+    <div class="intro-right">
+      <div class="portrait-container">
+        <img src="https://images.unsplash.com/photo-1614709445081-23465e205471?w=800&q=80" alt="Leah Maelane portrait" class="portrait-img" />
+        <div class="portrait-border"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Preview -->
+  <section class="portfolio-preview">
+    <span class="section-label">PORTFOLIO</span>
+    <h2 class="section-heading">A Visual Journey</h2>
+    <div class="masonry-grid">
+      <div class="masonry-col">
+        {portfolioImages.slice(0, 3).map((img) => (
+          <div class="masonry-item">
+            <img src={img.src} alt={img.alt} loading="lazy" />
+            <span class="masonry-label">{img.category}</span>
+          </div>
+        ))}
+      </div>
+      <div class="masonry-col">
+        {portfolioImages.slice(3, 6).map((img) => (
+          <div class="masonry-item">
+            <img src={img.src} alt={img.alt} loading="lazy" />
+            <span class="masonry-label">{img.category}</span>
+          </div>
+        ))}
+      </div>
+      <div class="masonry-col">
+        {portfolioImages.slice(6, 9).map((img) => (
+          <div class="masonry-item">
+            <img src={img.src} alt={img.alt} loading="lazy" />
+            <span class="masonry-label">{img.category}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pull Quote -->
+  <section class="quote-section">
+    <div class="quote-pattern"></div>
+    <span class="quote-mark open">&ldquo;</span>
+    <blockquote class="quote-text">
+      My skin tells stories of a thousand suns.<br>
+      My walk carries the weight of crowns.
+    </blockquote>
+    <span class="quote-mark close">&rdquo;</span>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <span class="cta-label">LET'S CREATE TOGETHER</span>
+    <h2 class="cta-heading">Work With Me</h2>
+    <p class="cta-desc">Available for editorial, commercial, and runway bookings worldwide.</p>
+    <a href="/contact" class="cta-button">GET IN TOUCH</a>
+    <a href="mailto:bookings@leahmaelane.co.za" class="cta-email">bookings@leahmaelane.co.za</a>
+  </section>
+
+  <Footer variant="full" />
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    max-height: 900px;
+    background: url('https://images.unsplash.com/photo-1614709445081-23465e205471?w=1600&q=80') center/cover no-repeat;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.8) 0%,
+      rgba(10, 10, 10, 0) 40%,
+      rgba(10, 10, 10, 0.53) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-text {
+    position: absolute;
+    bottom: 100px;
+    left: 56px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero-name {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: var(--color-light);
+  }
+
+  .hero-line {
+    width: 120px;
+    height: 2px;
+    background: var(--color-accent);
+  }
+
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.4vw, 20px);
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: rgba(250, 248, 245, 0.67);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    right: 56px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .scroll-text {
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(250, 248, 245, 0.5);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 32px;
+    background: rgba(250, 248, 245, 0.25);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Introduction */
+  .intro {
+    display: flex;
+    padding: 80px 56px;
+    background: var(--color-bg);
+    gap: 0;
+  }
+
+  .intro-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    padding-right: 64px;
+  }
+
+  .intro-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .intro-label-line {
+    width: 40px;
+    height: 1px;
+    background: var(--color-accent);
+  }
+
+  .intro-label-text {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--color-text-muted);
+  }
+
+  .intro-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: normal;
+    line-height: 1.2;
+    color: var(--color-text-dark);
+  }
+
+  .intro-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+  }
+
+  .intro-accent {
+    width: 60px;
+    height: 2px;
+    background: var(--color-accent);
+  }
+
+  .intro-right {
+    width: 480px;
+    flex-shrink: 0;
+    position: relative;
+    height: 520px;
+  }
+
+  .portrait-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .portrait-img {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 380px;
+    height: 480px;
+    object-fit: cover;
+  }
+
+  .portrait-border {
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    width: 380px;
+    height: 480px;
+    border: 1px solid var(--color-accent);
+  }
+
+  /* Portfolio Preview */
+  .portfolio-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 80px 120px;
+    background: var(--color-bg);
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--color-accent);
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: normal;
+    color: var(--color-text-dark);
+  }
+
+  .masonry-grid {
+    display: flex;
+    gap: 20px;
+  }
+
+  .masonry-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masonry-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .masonry-item img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .masonry-col:nth-child(1) .masonry-item:nth-child(1) img { height: 420px; }
+  .masonry-col:nth-child(1) .masonry-item:nth-child(2) img { height: 280px; }
+  .masonry-col:nth-child(1) .masonry-item:nth-child(3) img { height: 420px; }
+  .masonry-col:nth-child(2) .masonry-item:nth-child(1) img { height: 300px; }
+  .masonry-col:nth-child(2) .masonry-item:nth-child(2) img { height: 400px; }
+  .masonry-col:nth-child(2) .masonry-item:nth-child(3) img { height: 300px; }
+  .masonry-col:nth-child(3) .masonry-item:nth-child(1) img { height: 500px; }
+  .masonry-col:nth-child(3) .masonry-item:nth-child(2) img { height: 500px; }
+
+  .masonry-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--color-text-muted);
+  }
+
+  /* Quote */
+  .quote-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 100px 200px;
+    background: var(--color-bg-alt);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quote-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      var(--color-accent) 20px,
+      var(--color-accent) 21px
+    );
+  }
+
+  .quote-mark {
+    font-family: var(--font-heading);
+    font-size: 120px;
+    color: var(--color-accent);
+    opacity: 0.5;
+    line-height: 0.5;
+  }
+
+  .quote-text {
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 2.2vw, 32px);
+    font-style: italic;
+    font-weight: normal;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    text-align: center;
+    max-width: 800px;
+  }
+
+  /* CTA */
+  .cta-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 80px 120px;
+    background: var(--color-bg);
+  }
+
+  .cta-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--color-accent);
+  }
+
+  .cta-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 3.3vw, 48px);
+    font-weight: normal;
+    color: var(--color-text-dark);
+  }
+
+  .cta-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    text-align: center;
+    max-width: 500px;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 16px 48px;
+    transition: background 0.3s;
+  }
+
+  .cta-button:hover {
+    background: var(--color-accent-alt);
+  }
+
+  .cta-email {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--color-text-muted);
+    transition: color 0.3s;
+  }
+
+  .cta-email:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 1024px) {
+    .portfolio-preview {
+      padding: 60px 40px;
+    }
+
+    .quote-section {
+      padding: 60px 40px;
+    }
+
+    .cta-section {
+      padding: 60px 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-text {
+      left: 24px;
+      bottom: 60px;
+    }
+
+    .scroll-hint {
+      display: none;
+    }
+
+    .intro {
+      flex-direction: column;
+      padding: 48px 24px;
+      gap: 40px;
+    }
+
+    .intro-left {
+      padding-right: 0;
+    }
+
+    .intro-right {
+      width: 100%;
+      height: 400px;
+    }
+
+    .portrait-img {
+      left: 20px;
+      width: calc(100% - 40px);
+      height: 360px;
+    }
+
+    .portrait-border {
+      left: 40px;
+      width: calc(100% - 60px);
+      height: 360px;
+    }
+
+    .portfolio-preview {
+      padding: 48px 24px;
+    }
+
+    .masonry-grid {
+      flex-direction: column;
+    }
+
+    .masonry-col .masonry-item img {
+      height: 300px !important;
+    }
+
+    .quote-section {
+      padding: 48px 24px;
+    }
+
+    .cta-section {
+      padding: 48px 24px;
+    }
+  }
+</style>
