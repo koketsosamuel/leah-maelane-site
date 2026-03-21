@@ -3,8 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 
-const categories = ['TRADITIONAL', 'EDITORIAL', 'COMMERCIAL', 'RUNWAY', 'BEAUTY'];
-
 const photos = [
   // Row 1 - 2 col
   { src: 'https://images.unsplash.com/photo-1744973123720-309ded99ac9d?w=800&q=80', title: 'Umakoti — Bridal Collection', credits: 'Photography: Zanele Muholi  ·  Styling: Thebe Magugu', alt: 'Traditional bridal' },
@@ -29,15 +27,6 @@ const photos = [
     <h1 class="page-title">Portfolio</h1>
     <p class="page-subtitle">A curated collection of editorial, commercial & runway work</p>
     <div class="header-divider"></div>
-  </section>
-
-  <!-- Category Filters -->
-  <section class="filters">
-    {categories.map((cat, i) => (
-      <button class:list={['filter-btn', { active: i === 0 }]} data-category={cat}>
-        {cat}
-      </button>
-    ))}
   </section>
 
   <!-- Photo Grid -->
@@ -147,44 +136,6 @@ const photos = [
     background: var(--color-accent);
   }
 
-  .filters {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    padding: 0 56px 48px;
-  }
-
-  .filter-btn {
-    background: none;
-    font-family: var(--font-body);
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: var(--color-text-muted);
-    padding: 0;
-    position: relative;
-    transition: color 0.3s;
-  }
-
-  .filter-btn.active {
-    color: var(--color-accent);
-    font-weight: 500;
-  }
-
-  .filter-btn.active::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--color-accent);
-  }
-
-  .filter-btn:hover {
-    color: var(--color-accent);
-  }
-
   .photo-grid {
     display: flex;
     flex-direction: column;
@@ -265,12 +216,6 @@ const photos = [
   @media (max-width: 768px) {
     .page-header {
       padding: 48px 24px 32px;
-    }
-
-    .filters {
-      flex-wrap: wrap;
-      gap: 16px;
-      padding: 0 24px 32px;
     }
 
     .photo-grid {
