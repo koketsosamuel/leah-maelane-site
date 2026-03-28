@@ -4,15 +4,15 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 
 const portfolioImages = [
-  { src: 'https://images.unsplash.com/photo-1614709445081-23465e205471?w=600&q=80', category: 'TRADITIONAL', alt: 'Traditional fashion' },
-  { src: 'https://images.unsplash.com/photo-1616186632093-549e176bc345?w=600&q=80', category: 'COMMERCIAL', alt: 'Commercial shoot' },
-  { src: 'https://images.unsplash.com/photo-1772240520016-e8639030df5c?w=600&q=80', category: 'TRADITIONAL', alt: 'Heritage fashion' },
-  { src: 'https://images.unsplash.com/photo-1663044023988-6682a5e55a5e?w=600&q=80', category: 'EDITORIAL', alt: 'Editorial' },
-  { src: 'https://images.unsplash.com/photo-1692860412138-e090edcb61c9?w=600&q=80', category: 'RUNWAY', alt: 'Runway shot' },
-  { src: 'https://images.unsplash.com/photo-1770777352873-d7eac408af7e?w=600&q=80', category: 'BEAUTY', alt: 'Beauty close-up' },
-  { src: 'https://images.unsplash.com/photo-1744973123720-309ded99ac9d?w=600&q=80', category: 'TRADITIONAL', alt: 'Traditional portrait' },
-  { src: 'https://images.unsplash.com/photo-1624574966266-1cdd65b74500?w=600&q=80', category: 'BEAUTY', alt: 'Beauty portrait' },
-  { src: 'https://images.unsplash.com/photo-1634232147178-4537df296567?w=600&q=80', category: 'COMMERCIAL', alt: 'Commercial look' },
+  { src: '/images/traditional-striped-halfbody.jpg', category: 'TRADITIONAL', alt: 'Traditional striped outfit against red backdrop' },
+  { src: '/images/editorial-pink-sequin.jpg', category: 'COMMERCIAL', alt: 'Pink sequin gown with mirror backdrop' },
+  { src: '/images/editorial-vintage-leather.jpg', category: 'EDITORIAL', alt: 'Vintage leather jacket editorial' },
+  { src: '/images/runway-feather-top.jpg', category: 'RUNWAY', alt: 'Feather top at Soweto Fashion Week' },
+  { src: '/images/runway-gold-gown.jpg', category: 'RUNWAY', alt: 'Gold mesh gown on the runway' },
+  { src: '/images/beauty-pink-closeup.jpg', category: 'BEAUTY', alt: 'Pink sequin dress close-up portrait' },
+  { src: '/images/traditional-striped-fullbody.jpg', category: 'TRADITIONAL', alt: 'Traditional striped dress full body' },
+  { src: '/images/beauty-pink-portrait.jpg', category: 'BEAUTY', alt: 'Pink embellished dress portrait' },
+  { src: '/images/editorial-green-suit.jpg', category: 'COMMERCIAL', alt: 'Green power suit editorial with vintage TV' },
 ];
 ---
 
@@ -49,7 +49,7 @@ const portfolioImages = [
     </div>
     <div class="intro-right">
       <div class="portrait-container">
-        <img src="https://images.unsplash.com/photo-1614709445081-23465e205471?w=800&q=80" alt="Leah Maelane portrait" class="portrait-img" />
+        <img src="/images/portrait-beauty.jpg" alt="Leah Maelane portrait" class="portrait-img" />
         <div class="portrait-border"></div>
       </div>
     </div>
@@ -118,7 +118,7 @@ const portfolioImages = [
     height: 100vh;
     min-height: 700px;
     max-height: 900px;
-    background: url('https://images.unsplash.com/photo-1614709445081-23465e205471?w=1600&q=80') center/cover no-repeat;
+    background: url('/images/hero.jpg') top/cover no-repeat;
     overflow: hidden;
   }
 
