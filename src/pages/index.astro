@@ -5,14 +5,17 @@ import Footer from '../components/Footer.astro';
 
 const portfolioImages = [
   { src: '/images/traditional-striped-halfbody.jpg', category: 'TRADITIONAL', alt: 'Traditional striped outfit against red backdrop' },
-  { src: '/images/editorial-pink-sequin.jpg', category: 'COMMERCIAL', alt: 'Pink sequin gown with mirror backdrop' },
+  { src: '/images/editorial-pink-sequin.jpg', category: 'EDITORIAL', alt: 'Pink sequin gown with mirror backdrop' },
   { src: '/images/editorial-vintage-leather.jpg', category: 'EDITORIAL', alt: 'Vintage leather jacket editorial' },
   { src: '/images/runway-feather-top.jpg', category: 'RUNWAY', alt: 'Feather top at Soweto Fashion Week' },
   { src: '/images/runway-gold-gown.jpg', category: 'RUNWAY', alt: 'Gold mesh gown on the runway' },
-  { src: '/images/beauty-pink-closeup.jpg', category: 'BEAUTY', alt: 'Pink sequin dress close-up portrait' },
+  { src: '/images/beauty-golden-hour.jpg', category: 'BEAUTY', alt: 'Golden hour intimate portrait' },
   { src: '/images/traditional-striped-fullbody.jpg', category: 'TRADITIONAL', alt: 'Traditional striped dress full body' },
   { src: '/images/beauty-pink-portrait.jpg', category: 'BEAUTY', alt: 'Pink embellished dress portrait' },
-  { src: '/images/editorial-green-suit.jpg', category: 'COMMERCIAL', alt: 'Green power suit editorial with vintage TV' },
+  { src: '/images/editorial-green-suit.jpg', category: 'EDITORIAL', alt: 'Green power suit editorial with vintage TV' },
+  { src: '/images/runway-black-vest.jpg', category: 'RUNWAY', alt: 'Black vest and white shirt runway' },
+  { src: '/images/editorial-neon-pink.jpg', category: 'EDITORIAL', alt: 'Neon pink street style editorial' },
+  { src: '/images/runway-denim-kimono.jpg', category: 'RUNWAY', alt: 'Denim kimono runway look' },
 ];
 ---
 
@@ -39,7 +42,7 @@ const portfolioImages = [
         <div class="intro-label-line"></div>
         <span class="intro-label-text">ABOUT LEAH</span>
       </div>
-      <h2 class="intro-heading">I bring culture<br>to the runway.</h2>
+      <h2 class="intro-heading">I bring culture to the runway.</h2>
       <p class="intro-body">
         Rooted in the traditions of my ancestors, I walk with the grace of queens who came before me.
         Every step on the runway is a celebration of heritage — a bridge between the ancient artistry
@@ -61,7 +64,7 @@ const portfolioImages = [
     <h2 class="section-heading">A Visual Journey</h2>
     <div class="masonry-grid">
       <div class="masonry-col">
-        {portfolioImages.slice(0, 3).map((img) => (
+        {portfolioImages.slice(0, 4).map((img) => (
           <div class="masonry-item">
             <img src={img.src} alt={img.alt} loading="lazy" width="800" height="1000" />
             <span class="masonry-label">{img.category}</span>
@@ -69,7 +72,7 @@ const portfolioImages = [
         ))}
       </div>
       <div class="masonry-col">
-        {portfolioImages.slice(3, 6).map((img) => (
+        {portfolioImages.slice(4, 8).map((img) => (
           <div class="masonry-item">
             <img src={img.src} alt={img.alt} loading="lazy" width="800" height="1000" />
             <span class="masonry-label">{img.category}</span>
@@ -77,7 +80,7 @@ const portfolioImages = [
         ))}
       </div>
       <div class="masonry-col">
-        {portfolioImages.slice(6, 9).map((img) => (
+        {portfolioImages.slice(8, 12).map((img) => (
           <div class="masonry-item">
             <img src={img.src} alt={img.alt} loading="lazy" width="800" height="1000" />
             <span class="masonry-label">{img.category}</span>
@@ -105,7 +108,7 @@ const portfolioImages = [
     <h2 class="cta-heading">Work With Me</h2>
     <p class="cta-desc">Available for editorial, commercial, and runway bookings worldwide.</p>
     <a href="/contact" class="cta-button">GET IN TOUCH</a>
-    <a href="mailto:bookings@leahmaelane.com" class="cta-email">bookings@leahmaelane.com</a>
+    <a href="mailto:leahmaelane@gmail.com" class="cta-email">leahmaelane@gmail.com</a>
   </section>
 
   <Footer variant="full" />
@@ -119,7 +122,7 @@ const portfolioImages = [
     height: 100vh;
     min-height: 700px;
     max-height: 900px;
-    background: url('/images/hero.jpg') top/cover no-repeat;
+    background: url('/images/hero.jpg') center top/cover no-repeat;
     overflow: hidden;
   }
 
@@ -138,7 +141,7 @@ const portfolioImages = [
   .hero-text {
     position: absolute;
     bottom: 100px;
-    left: 56px;
+    left: 80px;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -147,7 +150,7 @@ const portfolioImages = [
 
   .hero-name {
     font-family: var(--font-heading);
-    font-size: clamp(36px, 5vw, 72px);
+    font-size: clamp(28px, 5vw, 72px);
     font-weight: normal;
     letter-spacing: 2px;
     color: var(--color-light);
@@ -170,7 +173,7 @@ const portfolioImages = [
   .scroll-hint {
     position: absolute;
     bottom: 40px;
-    right: 56px;
+    right: 80px;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -200,7 +203,7 @@ const portfolioImages = [
   /* Introduction */
   .intro {
     display: flex;
-    padding: 80px 56px;
+    padding: 80px 80px;
     background: var(--color-bg);
     gap: 0;
   }
@@ -234,7 +237,7 @@ const portfolioImages = [
 
   .intro-heading {
     font-family: var(--font-heading);
-    font-size: clamp(28px, 3vw, 44px);
+    font-size: clamp(24px, 3vw, 44px);
     font-weight: normal;
     line-height: 1.2;
     color: var(--color-text-dark);
@@ -288,7 +291,7 @@ const portfolioImages = [
     display: flex;
     flex-direction: column;
     gap: 48px;
-    padding: 80px 120px;
+    padding: 80px 80px;
     background: var(--color-bg);
   }
 
@@ -301,7 +304,7 @@ const portfolioImages = [
 
   .section-heading {
     font-family: var(--font-heading);
-    font-size: clamp(28px, 3vw, 42px);
+    font-size: clamp(22px, 3vw, 42px);
     font-weight: normal;
     color: var(--color-text-dark);
   }
@@ -351,6 +354,10 @@ const portfolioImages = [
   .masonry-col:nth-child(2) .masonry-item:nth-child(3) img { height: 300px; }
   .masonry-col:nth-child(3) .masonry-item:nth-child(1) img { height: 500px; }
   .masonry-col:nth-child(3) .masonry-item:nth-child(2) img { height: 500px; }
+  .masonry-col:nth-child(1) .masonry-item:nth-child(4) img { height: 350px; }
+  .masonry-col:nth-child(2) .masonry-item:nth-child(4) img { height: 420px; }
+  .masonry-col:nth-child(3) .masonry-item:nth-child(3) img { height: 350px; }
+  .masonry-col:nth-child(3) .masonry-item:nth-child(4) img { height: 400px; }
 
   .masonry-label {
     font-size: 11px;
@@ -366,7 +373,7 @@ const portfolioImages = [
     align-items: center;
     justify-content: center;
     gap: 32px;
-    padding: 100px 200px;
+    padding: 100px 80px;
     background: var(--color-bg-alt);
     position: relative;
     overflow: hidden;
@@ -395,7 +402,7 @@ const portfolioImages = [
 
   .quote-text {
     font-family: var(--font-heading);
-    font-size: clamp(20px, 2.2vw, 32px);
+    font-size: clamp(18px, 2.2vw, 32px);
     font-style: italic;
     font-weight: normal;
     line-height: 1.6;
@@ -410,7 +417,7 @@ const portfolioImages = [
     flex-direction: column;
     align-items: center;
     gap: 32px;
-    padding: 80px 120px;
+    padding: 80px 80px;
     background: var(--color-bg);
   }
 
@@ -423,7 +430,7 @@ const portfolioImages = [
 
   .cta-heading {
     font-family: var(--font-heading);
-    font-size: clamp(32px, 3.3vw, 48px);
+    font-size: clamp(24px, 3.3vw, 48px);
     font-weight: normal;
     color: var(--color-text-dark);
   }

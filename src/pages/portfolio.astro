@@ -3,19 +3,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 
-const photos = [
-  // Row 1 - 2 col
-  { src: '/images/runway-safw-traditional.jpg', title: 'SA Fashion Week — Traditional Collection', credits: 'SA Fashion Week Runway', alt: 'Traditional outfit at SA Fashion Week' },
-  { src: '/images/traditional-heritage-red.jpg', title: 'Heritage — Striped Collection', credits: 'Heritage Editorial Shoot', alt: 'Traditional striped outfit with red backdrop' },
-  // Row 2 - asymmetric
-  { src: '/images/editorial-pink-sequin.jpg', title: 'Mirror Mirror — Pink Sequin', credits: 'Editorial Shoot', alt: 'Pink sequin gown with mirror backdrop', height: 480 },
-  { src: '/images/commercial-glade.jpg', title: 'Glade Campaign', credits: 'Commercial Campaign', alt: 'Glade commercial event', height: 360 },
-  { src: '/images/hero.jpg', title: 'Golden Hour — Body Paint Editorial', credits: 'Editorial Shoot', alt: 'Gold body paint editorial', height: 884 },
-  { src: '/images/beauty-bw-satin.jpg', title: 'Monochrome — Satin Series', credits: 'Beauty Editorial', alt: 'Black and white satin dress portrait', height: 884 },
-  // Row 3
-  { src: '/images/runway-green-halter.jpg', title: 'Emerald — Halter Collection', credits: 'Soweto Fashion Week', alt: 'Green halter dress on runway' },
+const editorial = [
+  { src: '/images/editorial-pink-sequin.jpg', title: 'Mirror Mirror — Pink Sequin', credits: 'Editorial Shoot', alt: 'Pink sequin gown with mirror backdrop' },
   { src: '/images/editorial-green-suit.jpg', title: 'Power Suit — Retro Editorial', credits: 'Retro Editorial Shoot', alt: 'Green power suit with vintage TV' },
-  { src: '/images/beauty-pink-closeup.jpg', title: 'Skin Deep — Beauty Edit', credits: 'Beauty Editorial', alt: 'Pink sequin dress close-up portrait' },
+  { src: '/images/editorial-vintage-leather.jpg', title: 'Vintage Leather — Retro Series', credits: 'Heritage Editorial', alt: 'Vintage leather jacket editorial' },
+  { src: '/images/editorial-red-gown.jpg', title: 'Scarlet — Red Gown', credits: 'Fashion Editorial', alt: 'Red mermaid gown solo portrait' },
+  { src: '/images/editorial-gold-jumpsuit.jpg', title: 'Backstage — Gold Jumpsuit', credits: 'Backstage Series', alt: 'Gold patterned jumpsuit backstage' },
+  { src: '/images/editorial-neon-pink.jpg', title: 'Neon Nights — Street Editorial', credits: 'Urban Editorial', alt: 'Neon pink street style editorial' },
+  { src: '/images/editorial-bw-trenchcoat.jpg', title: 'Monochrome — Trench Series', credits: 'B&W Editorial', alt: 'Black and white trench coat editorial' },
+  { src: '/images/editorial-bw-denim-vest.jpg', title: 'Denim Days — B&W Series', credits: 'B&W Editorial', alt: 'Black and white denim vest editorial' },
+  { src: '/images/editorial-vintage-couple.jpg', title: 'Retro Couple — Vintage', credits: 'Heritage Editorial', alt: 'Vintage leather jacket couple editorial' },
+  { src: '/images/editorial-red-gown-couple.jpg', title: 'Scarlet Duo — Red Gown', credits: 'Fashion Editorial', alt: 'Red gown standing with male model' },
+  { src: '/images/editorial-striped-couple.jpg', title: 'Heritage Duo — Striped', credits: 'Heritage Editorial', alt: 'Matching striped outfits couple' },
+  { src: '/images/editorial-red-gown-seated.jpg', title: 'Scarlet — Seated Portrait', credits: 'Fashion Editorial', alt: 'Red gown seated couple portrait' },
+  { src: '/images/editorial-gold-jumpsuit-alt.jpg', title: 'Backstage — Gold Alternate', credits: 'Backstage Series', alt: 'Gold patterned jumpsuit alternate angle' },
+  { src: '/images/editorial-gold-jumpsuit-wide.jpg', title: 'Backstage — Gold Wide', credits: 'Backstage Series', alt: 'Gold patterned jumpsuit wide shot' },
+  { src: '/images/editorial-bw-denim-pose.jpg', title: 'Denim Days — B&W Pose', credits: 'B&W Editorial', alt: 'Black and white denim editorial pose' },
+];
+
+const runway = [
+  { src: '/images/runway-safw-traditional.jpg', title: 'SA Fashion Week — Traditional', credits: 'SA Fashion Week', alt: 'Traditional outfit at SA Fashion Week' },
+  { src: '/images/runway-feather-top.jpg', title: 'Soweto Fashion Week — Feather Top', credits: 'Soweto Fashion Week', alt: 'Feather top at Soweto Fashion Week' },
+  { src: '/images/runway-gold-gown.jpg', title: 'Soweto Fashion Week — Gold Gown', credits: 'Soweto Fashion Week', alt: 'Gold mesh gown on the runway' },
+  { src: '/images/runway-soweto-red-dress.jpg', title: 'Soweto Fashion Week — Red Dress', credits: 'Soweto Fashion Week', alt: 'Red tiered dress at Soweto Fashion Week' },
+  { src: '/images/runway-green-halter.jpg', title: 'Emerald — Halter Collection', credits: 'Soweto Fashion Week', alt: 'Green halter dress on runway' },
+  { src: '/images/runway-blue-coat.jpg', title: 'Cobalt — Blue Coat', credits: 'Runway Show', alt: 'Blue coat runway show' },
+  { src: '/images/runway-blue-coat-back.jpg', title: 'Cobalt — Back View', credits: 'Runway Show', alt: 'Blue coat runway back view' },
+  { src: '/images/runway-black-vest.jpg', title: 'Noir — Black Vest', credits: 'Fashion Show', alt: 'Black vest and white shirt runway' },
+  { src: '/images/runway-denim-kimono.jpg', title: 'Denim Kimono — Street Luxe', credits: 'Creme de la Creme Fashion Week', alt: 'Denim kimono runway look' },
+  { src: '/images/runway-tut-show.jpg', title: 'TUT Fashion Show', credits: 'TUT Runway', alt: 'TUT fashion show runway' },
+  { src: '/images/runway-blue-coat-alt.jpg', title: 'Cobalt — Alternate View', credits: 'Runway Show', alt: 'Blue coat runway alternate view' },
+];
+
+const beauty = [
+  { src: '/images/portrait-beauty.jpg', title: 'Natural Beauty — Headshot', credits: 'Beauty Editorial', alt: 'Beauty headshot with natural makeup' },
+  { src: '/images/beauty-pink-closeup.jpg', title: 'Skin Deep — Pink Sequin', credits: 'Beauty Editorial', alt: 'Pink sequin dress close-up portrait' },
+  { src: '/images/beauty-pink-portrait.jpg', title: 'Embellished — Close Up', credits: 'Beauty Editorial', alt: 'Pink embellished dress portrait' },
+  { src: '/images/beauty-bw-satin.jpg', title: 'Monochrome — Satin Series', credits: 'Beauty Editorial', alt: 'Black and white satin dress portrait' },
+  { src: '/images/beauty-golden-hour.jpg', title: 'Golden Hour — Intimate', credits: 'Beauty Editorial', alt: 'Golden hour intimate portrait' },
+  { src: '/images/beauty-golden-closeup.jpg', title: 'Golden Hour — Close Up', credits: 'Beauty Editorial', alt: 'Golden hour close-up portrait' },
+  { src: '/images/portrait-bw-elegant.jpg', title: 'Elegance — B&W Portrait', credits: 'Beauty Editorial', alt: 'Elegant black and white portrait' },
+  { src: '/images/contact-beauty-portrait.jpg', title: 'Beauty — Makeup Brushes', credits: 'Beauty Editorial', alt: 'Beauty portrait with makeup brushes' },
+];
+
+const traditional = [
+  { src: '/images/traditional-heritage-red.jpg', title: 'Heritage — Striped Collection', credits: 'Heritage Editorial', alt: 'Traditional striped outfit with red backdrop' },
+  { src: '/images/traditional-striped-halfbody.jpg', title: 'Heritage — Yellow Scarf', credits: 'Heritage Editorial', alt: 'Traditional striped outfit half body' },
+  { src: '/images/traditional-striped-fullbody.jpg', title: 'Heritage — Full Look', credits: 'Heritage Editorial', alt: 'Traditional striped dress full body' },
+  { src: '/images/traditional-striped-closeup.jpg', title: 'Heritage — Close Up', credits: 'Heritage Editorial', alt: 'Traditional striped outfit close-up' },
+  { src: '/images/portrait-yellow-scarf.jpg', title: 'Heritage — Portrait', credits: 'Heritage Editorial', alt: 'Yellow headscarf portrait against red backdrop' },
+];
+
+const commercial = [
+  { src: '/images/hero.jpg', title: 'Vintage Leather — Editorial', credits: 'Commercial Campaign', alt: 'Vintage leather jacket editorial' },
+  { src: '/images/commercial-glade.jpg', title: 'Glade Campaign', credits: 'Glade South Africa', alt: 'Glade commercial event' },
+  { src: '/images/commercial-glade-alt.jpg', title: 'Glade Campaign — Alternate', credits: 'Glade South Africa', alt: 'Glade commercial alternate angle' },
 ];
 ---
 
@@ -29,14 +71,14 @@ const photos = [
     <div class="header-divider"></div>
   </section>
 
-  <!-- Photo Grid -->
-  <section class="photo-grid">
-    <!-- Row 1 -->
-    <div class="grid-row grid-row-2">
-      {photos.slice(0, 2).map(photo => (
+  <!-- Editorial -->
+  <section class="category-section">
+    <h2 class="category-title">Editorial</h2>
+    <div class="category-grid">
+      {editorial.map(photo => (
         <div class="photo-wrap">
           <div class="photo-frame">
-            <img src={photo.src} alt={photo.alt} width="800" height="1000" />
+            <img src={photo.src} alt={photo.alt} loading="lazy" width="800" height="1000" />
           </div>
           <div class="photo-caption">
             <p class="caption-title">{photo.title}</p>
@@ -45,54 +87,69 @@ const photos = [
         </div>
       ))}
     </div>
+  </section>
 
-    <!-- Row 2 - Asymmetric -->
-    <div class="grid-row grid-row-asymmetric">
-      <div class="asym-left">
+  <!-- Runway -->
+  <section class="category-section">
+    <h2 class="category-title">Runway</h2>
+    <div class="category-grid">
+      {runway.map(photo => (
         <div class="photo-wrap">
-          <div class="photo-frame" style="height: 480px;">
-            <img src={photos[2].src} alt={photos[2].alt} loading="lazy" width="800" height="1000" />
+          <div class="photo-frame">
+            <img src={photo.src} alt={photo.alt} loading="lazy" width="800" height="1000" />
           </div>
           <div class="photo-caption">
-            <p class="caption-title">{photos[2].title}</p>
-            <p class="caption-credits">{photos[2].credits}</p>
+            <p class="caption-title">{photo.title}</p>
+            <p class="caption-credits">{photo.credits}</p>
           </div>
         </div>
-        <div class="photo-wrap">
-          <div class="photo-frame" style="height: 360px;">
-            <img src={photos[3].src} alt={photos[3].alt} loading="lazy" width="800" height="1000" />
-          </div>
-          <div class="photo-caption">
-            <p class="caption-title">{photos[3].title}</p>
-            <p class="caption-credits">{photos[3].credits}</p>
-          </div>
-        </div>
-      </div>
-      <div class="photo-wrap asym-right">
-        <div class="photo-frame" style="height: 884px;">
-          <img src={photos[4].src} alt={photos[4].alt} loading="lazy" width="800" height="1000" />
-        </div>
-        <div class="photo-caption">
-          <p class="caption-title">{photos[4].title}</p>
-          <p class="caption-credits">{photos[4].credits}</p>
-        </div>
-      </div>
-      <div class="photo-wrap asym-right">
-        <div class="photo-frame" style="height: 884px;">
-          <img src={photos[5].src} alt={photos[5].alt} loading="lazy" width="800" height="1000" />
-        </div>
-        <div class="photo-caption">
-          <p class="caption-title">{photos[5].title}</p>
-          <p class="caption-credits">{photos[5].credits}</p>
-        </div>
-      </div>
+      ))}
     </div>
+  </section>
 
-    <!-- Row 3 -->
-    <div class="grid-row grid-row-3">
-      {photos.slice(6, 9).map(photo => (
+  <!-- Beauty -->
+  <section class="category-section">
+    <h2 class="category-title">Beauty</h2>
+    <div class="category-grid">
+      {beauty.map(photo => (
         <div class="photo-wrap">
-          <div class="photo-frame" style="height: 520px;">
+          <div class="photo-frame">
+            <img src={photo.src} alt={photo.alt} loading="lazy" width="800" height="1000" />
+          </div>
+          <div class="photo-caption">
+            <p class="caption-title">{photo.title}</p>
+            <p class="caption-credits">{photo.credits}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Traditional & Heritage -->
+  <section class="category-section">
+    <h2 class="category-title">Traditional &amp; Heritage</h2>
+    <div class="category-grid">
+      {traditional.map(photo => (
+        <div class="photo-wrap">
+          <div class="photo-frame">
+            <img src={photo.src} alt={photo.alt} loading="lazy" width="800" height="1000" />
+          </div>
+          <div class="photo-caption">
+            <p class="caption-title">{photo.title}</p>
+            <p class="caption-credits">{photo.credits}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Commercial -->
+  <section class="category-section">
+    <h2 class="category-title">Commercial</h2>
+    <div class="category-grid">
+      {commercial.map(photo => (
+        <div class="photo-wrap">
+          <div class="photo-frame">
             <img src={photo.src} alt={photo.alt} loading="lazy" width="800" height="1000" />
           </div>
           <div class="photo-caption">
@@ -119,12 +176,12 @@ const photos = [
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    padding: 80px 56px 48px;
+    padding: 80px 80px 48px;
   }
 
   .page-title {
     font-family: var(--font-heading);
-    font-size: clamp(36px, 5vw, 72px);
+    font-size: clamp(28px, 5vw, 72px);
     font-weight: normal;
     color: var(--color-text-dark);
   }
@@ -142,41 +199,24 @@ const photos = [
     background: var(--color-accent);
   }
 
-  .photo-grid {
-    display: flex;
-    flex-direction: column;
+  .category-section {
+    padding: 0 80px 64px;
+  }
+
+  .category-title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: normal;
+    color: var(--color-text-dark);
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-bg-alt);
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    padding: 0 56px 48px;
-  }
-
-  .grid-row {
-    display: flex;
-    gap: 24px;
-  }
-
-  .grid-row-2 .photo-wrap,
-  .grid-row-3 .photo-wrap {
-    flex: 1;
-  }
-
-  .grid-row-2 .photo-frame {
-    height: 620px;
-  }
-
-  .grid-row-asymmetric {
-    display: flex;
-    gap: 24px;
-  }
-
-  .asym-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .asym-right {
-    flex: 1;
   }
 
   .photo-wrap {
@@ -188,6 +228,7 @@ const photos = [
   .photo-frame {
     overflow: hidden;
     width: 100%;
+    height: 420px;
   }
 
   .photo-frame img {
@@ -224,7 +265,7 @@ const photos = [
     flex-direction: column;
     align-items: center;
     gap: 24px;
-    padding: 64px 56px;
+    padding: 64px 80px;
     background: var(--color-bg-alt);
   }
 
@@ -256,18 +297,17 @@ const photos = [
       padding: 48px 24px 32px;
     }
 
-    .photo-grid {
-      padding: 0 24px 32px;
+    .category-section {
+      padding: 0 24px 40px;
     }
 
-    .grid-row,
-    .grid-row-asymmetric {
-      flex-direction: column;
+    .category-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
-    .grid-row-2 .photo-frame,
     .photo-frame {
-      height: 300px !important;
+      height: 250px !important;
     }
   }
 </style>
