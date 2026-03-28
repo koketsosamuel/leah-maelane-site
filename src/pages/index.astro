@@ -16,7 +16,7 @@ const portfolioImages = [
 ];
 ---
 
-<BaseLayout title="Leah Maelane — Where Heritage Meets High Fashion">
+<BaseLayout title="Leah Maelane | South African Fashion Model — Heritage Meets High Fashion" description="Leah Maelane is a Johannesburg-based South African fashion model bridging heritage and high fashion. Explore her editorial, commercial, and runway portfolio. Book now for worldwide campaigns.">
   <!-- Hero Section -->
   <section class="hero">
     <Navigation variant="overlay" />
@@ -49,7 +49,7 @@ const portfolioImages = [
     </div>
     <div class="intro-right">
       <div class="portrait-container">
-        <img src="/images/portrait-beauty.jpg" alt="Leah Maelane portrait" class="portrait-img" />
+        <img src="/images/portrait-beauty.jpg" alt="Leah Maelane beauty portrait with natural makeup" class="portrait-img" width="800" height="1000" fetchpriority="high" />
         <div class="portrait-border"></div>
       </div>
     </div>
@@ -63,7 +63,7 @@ const portfolioImages = [
       <div class="masonry-col">
         {portfolioImages.slice(0, 3).map((img) => (
           <div class="masonry-item">
-            <img src={img.src} alt={img.alt} loading="lazy" />
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="1000" />
             <span class="masonry-label">{img.category}</span>
           </div>
         ))}
@@ -71,7 +71,7 @@ const portfolioImages = [
       <div class="masonry-col">
         {portfolioImages.slice(3, 6).map((img) => (
           <div class="masonry-item">
-            <img src={img.src} alt={img.alt} loading="lazy" />
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="1000" />
             <span class="masonry-label">{img.category}</span>
           </div>
         ))}
@@ -79,12 +79,13 @@ const portfolioImages = [
       <div class="masonry-col">
         {portfolioImages.slice(6, 9).map((img) => (
           <div class="masonry-item">
-            <img src={img.src} alt={img.alt} loading="lazy" />
+            <img src={img.src} alt={img.alt} loading="lazy" width="800" height="1000" />
             <span class="masonry-label">{img.category}</span>
           </div>
         ))}
       </div>
     </div>
+    <a href="/portfolio" class="view-portfolio-link">VIEW FULL PORTFOLIO →</a>
   </section>
 
   <!-- Pull Quote -->
@@ -104,7 +105,7 @@ const portfolioImages = [
     <h2 class="cta-heading">Work With Me</h2>
     <p class="cta-desc">Available for editorial, commercial, and runway bookings worldwide.</p>
     <a href="/contact" class="cta-button">GET IN TOUCH</a>
-    <a href="mailto:bookings@leahmaelane.co.za" class="cta-email">bookings@leahmaelane.co.za</a>
+    <a href="mailto:bookings@leahmaelane.com" class="cta-email">bookings@leahmaelane.com</a>
   </section>
 
   <Footer variant="full" />
@@ -303,6 +304,19 @@ const portfolioImages = [
     font-size: clamp(28px, 3vw, 42px);
     font-weight: normal;
     color: var(--color-text-dark);
+  }
+
+  .view-portfolio-link {
+    align-self: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--color-accent);
+    transition: color 0.3s;
+  }
+
+  .view-portfolio-link:hover {
+    color: var(--color-accent-alt);
   }
 
   .masonry-grid {

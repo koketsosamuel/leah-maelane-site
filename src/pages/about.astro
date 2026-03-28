@@ -18,23 +18,30 @@ const highlights = [
 ];
 ---
 
-<BaseLayout title="About — Leah Maelane">
+<BaseLayout title="About Leah Maelane | South African Fashion Model Based in Johannesburg" description="Meet Leah Maelane — a Johannesburg-born fashion model represented by Storm Models. From SA Fashion Week to global runways, she celebrates African heritage through fashion.">
   <Navigation activeLink="ABOUT" />
   <div class="nav-divider"></div>
 
   <!-- Hero / Bio Section -->
   <section class="about-hero">
     <div class="hero-portrait">
-      <img src="/images/portrait-yellow-scarf.jpg" alt="Leah Maelane" />
+      <img src="/images/portrait-yellow-scarf.jpg" alt="Leah Maelane editorial portrait with yellow headscarf against red backdrop" width="1200" height="1575" fetchpriority="high" />
     </div>
     <div class="hero-bio">
       <span class="bio-tag">ABOUT ME</span>
       <h1 class="bio-heading">A Celebration of Heritage</h1>
       <p class="bio-text">
-        Born in Johannesburg, raised in tradition. I am Leah Maelane — a celebration of heritage on every stage I grace.
-        From the beadwork of my grandmother to the runways of Paris, I carry my roots with pride.
+        Born in Johannesburg and raised in tradition, I am Leah Maelane — a South African fashion model
+        and a celebration of heritage on every stage I grace. From the beadwork of my grandmother to the
+        runways of SA Fashion Week and Soweto Fashion Week, I carry my roots with pride.
       </p>
       <div class="gold-line"></div>
+      <p class="bio-text">
+        My journey as a model began on the streets of Johannesburg, where culture and creativity collide.
+        Today, I walk for editorial campaigns, commercial brands, and runway shows across South Africa and beyond —
+        always carrying the spirit of African artistry with me. Whether it's a bold editorial shoot or a traditional
+        collection on the catwalk, every frame tells a story of where I come from and where African fashion is going.
+      </p>
     </div>
   </section>
 
@@ -62,7 +69,7 @@ const highlights = [
         {highlights.map(item => (
           <div class="filmstrip-item">
             <div class="filmstrip-img">
-              <img src={item.src} alt={item.alt} loading="lazy" />
+              <img src={item.src} alt={item.alt} loading="lazy" width="600" height="800" />
             </div>
             <div class="filmstrip-label">
               <p class="filmstrip-title">{item.title}</p>
@@ -72,6 +79,13 @@ const highlights = [
         ))}
       </div>
     </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="about-cta">
+    <a href="/portfolio" class="cta-link">VIEW MY PORTFOLIO →</a>
+    <span class="cta-divider">|</span>
+    <a href="/contact" class="cta-link">BOOK ME →</a>
   </section>
 
   <Footer variant="simple" />
@@ -270,6 +284,32 @@ const highlights = [
   .filmstrip-date {
     font-size: 11px;
     color: var(--color-text-muted);
+  }
+
+  .about-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 48px 56px;
+    background: var(--color-bg-alt);
+  }
+
+  .cta-link {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--color-accent);
+    transition: color 0.3s;
+  }
+
+  .cta-link:hover {
+    color: var(--color-accent-alt);
+  }
+
+  .cta-divider {
+    color: var(--color-accent);
+    opacity: 0.3;
   }
 
   @media (max-width: 768px) {

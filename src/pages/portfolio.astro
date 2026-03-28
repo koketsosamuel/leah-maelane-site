@@ -19,13 +19,13 @@ const photos = [
 ];
 ---
 
-<BaseLayout title="Portfolio — Leah Maelane">
+<BaseLayout title="Portfolio | Leah Maelane — Editorial, Runway & Commercial Modelling" description="Browse Leah Maelane's professional modelling portfolio featuring editorial, commercial, runway, beauty, and traditional South African fashion photography.">
   <Navigation activeLink="PORTFOLIO" />
 
   <!-- Page Header -->
   <section class="page-header">
     <h1 class="page-title">Portfolio</h1>
-    <p class="page-subtitle">A curated collection of editorial, commercial & runway work</p>
+    <p class="page-subtitle">A curated collection of editorial, commercial & runway modelling from Johannesburg to international stages</p>
     <div class="header-divider"></div>
   </section>
 
@@ -36,7 +36,7 @@ const photos = [
       {photos.slice(0, 2).map(photo => (
         <div class="photo-wrap">
           <div class="photo-frame">
-            <img src={photo.src} alt={photo.alt} loading="lazy" />
+            <img src={photo.src} alt={photo.alt} width="800" height="1000" />
           </div>
           <div class="photo-caption">
             <p class="caption-title">{photo.title}</p>
@@ -51,7 +51,7 @@ const photos = [
       <div class="asym-left">
         <div class="photo-wrap">
           <div class="photo-frame" style="height: 480px;">
-            <img src={photos[2].src} alt={photos[2].alt} loading="lazy" />
+            <img src={photos[2].src} alt={photos[2].alt} loading="lazy" width="800" height="1000" />
           </div>
           <div class="photo-caption">
             <p class="caption-title">{photos[2].title}</p>
@@ -60,7 +60,7 @@ const photos = [
         </div>
         <div class="photo-wrap">
           <div class="photo-frame" style="height: 360px;">
-            <img src={photos[3].src} alt={photos[3].alt} loading="lazy" />
+            <img src={photos[3].src} alt={photos[3].alt} loading="lazy" width="800" height="1000" />
           </div>
           <div class="photo-caption">
             <p class="caption-title">{photos[3].title}</p>
@@ -70,7 +70,7 @@ const photos = [
       </div>
       <div class="photo-wrap asym-right">
         <div class="photo-frame" style="height: 884px;">
-          <img src={photos[4].src} alt={photos[4].alt} loading="lazy" />
+          <img src={photos[4].src} alt={photos[4].alt} loading="lazy" width="800" height="1000" />
         </div>
         <div class="photo-caption">
           <p class="caption-title">{photos[4].title}</p>
@@ -79,7 +79,7 @@ const photos = [
       </div>
       <div class="photo-wrap asym-right">
         <div class="photo-frame" style="height: 884px;">
-          <img src={photos[5].src} alt={photos[5].alt} loading="lazy" />
+          <img src={photos[5].src} alt={photos[5].alt} loading="lazy" width="800" height="1000" />
         </div>
         <div class="photo-caption">
           <p class="caption-title">{photos[5].title}</p>
@@ -93,7 +93,7 @@ const photos = [
       {photos.slice(6, 9).map(photo => (
         <div class="photo-wrap">
           <div class="photo-frame" style="height: 520px;">
-            <img src={photo.src} alt={photo.alt} loading="lazy" />
+            <img src={photo.src} alt={photo.alt} loading="lazy" width="800" height="1000" />
           </div>
           <div class="photo-caption">
             <p class="caption-title">{photo.title}</p>
@@ -102,6 +102,12 @@ const photos = [
         </div>
       ))}
     </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="portfolio-cta">
+    <p class="cta-text">Interested in working together?</p>
+    <a href="/contact" class="cta-button">GET IN TOUCH</a>
   </section>
 
   <Footer variant="full" />
@@ -211,6 +217,38 @@ const photos = [
     font-size: 11px;
     font-weight: 300;
     color: var(--color-text-muted);
+  }
+
+  .portfolio-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 64px 56px;
+    background: var(--color-bg-alt);
+  }
+
+  .portfolio-cta .cta-text {
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 2vw, 28px);
+    color: var(--color-text-dark);
+  }
+
+  .portfolio-cta .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 16px 48px;
+    transition: background 0.3s;
+  }
+
+  .portfolio-cta .cta-button:hover {
+    background: var(--color-accent-alt);
   }
 
   @media (max-width: 768px) {
