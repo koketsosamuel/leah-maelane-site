@@ -13,6 +13,7 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://leahmaelane.com');
 const ogImageURL = new URL(ogImage, Astro.site || 'https://leahmaelane.com');
+const isProd = import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -71,6 +72,10 @@ const ogImageURL = new URL(ogImage, Astro.site || 'https://leahmaelane.com');
         "https://www.facebook.com/share/1AEHJSNtki/?mibextid=wwXIfr"
       ]
     })} />
+
+    {isProd && (
+      <script defer src="https://umami.client.brightsync.co.za/script.js" data-website-id="aca3e39d-aaa3-45b9-bc18-80f093d833e9" data-auto-track="true" data-do-not-track="true" data-domains="leahmaelane.com" is:inline></script>
+    )}
   </head>
   <body>
     <main>
