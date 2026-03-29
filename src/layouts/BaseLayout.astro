@@ -7,12 +7,15 @@ interface Props {
 
 const {
   title,
-  description = 'Leah Maelane — South African fashion model celebrating heritage through high fashion. Available for editorial, commercial, and runway bookings worldwide.',
-  ogImage = '/images/hero.jpg'
+  description = "Leah Maelane — South African fashion model celebrating heritage through high fashion. Available for editorial, commercial, and runway bookings worldwide.",
+  ogImage = "/images/hero.jpg",
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://leahmaelane.com');
-const ogImageURL = new URL(ogImage, Astro.site || 'https://leahmaelane.com');
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || "https://leahmaelane.com",
+);
+const ogImageURL = new URL(ogImage, Astro.site || "https://leahmaelane.com");
 const isProd = import.meta.env.PROD;
 ---
 
@@ -49,36 +52,54 @@ const isProd = import.meta.env.PROD;
     <!-- Preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Preload hero image for LCP -->
-    <link rel="preload" as="image" href="/images/hero.jpg" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero.jpg"
+      fetchpriority="high"
+    />
 
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Leah Maelane",
-      "jobTitle": "Fashion Model",
-      "url": "https://leahmaelane.com",
-      "image": "https://leahmaelane.com/images/portrait-beauty.jpg",
-      "description": "South African fashion model celebrating heritage through high fashion",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Pretoria",
-        "addressCountry": "ZA"
-      },
-      "email": "leahmaelane14@gmail.com",
-      "telephone": "+27848066821",
-      "sameAs": [
-        "https://www.instagram.com/leahmaelane",
-        "https://www.facebook.com/share/1AEHJSNtki/?mibextid=wwXIfr"
-      ]
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Leah Maelane",
+        jobTitle: "Fashion Model",
+        url: "https://leahmaelane.com",
+        image: "https://leahmaelane.com/images/portrait-beauty.jpg",
+        description:
+          "South African fashion model celebrating heritage through high fashion",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Pretoria",
+          addressCountry: "ZA",
+        },
+        email: "leahmaelane14@gmail.com",
+        telephone: "+27848066821",
+        sameAs: [
+          "https://www.instagram.com/leahmaelane",
+          "https://www.facebook.com/share/1AEHJSNtki/?mibextid=wwXIfr",
+        ],
+      })}
+    />
 
-    {isProd && (
-      <script defer src="https://umami.client.brightsync.co.za/script.js" data-website-id="aca3e39d-aaa3-45b9-bc18-80f093d833e9" data-auto-track="true" data-do-not-track="true" data-domains="leahmaelane.com" is:inline></script>
-    )}
+    {
+      isProd && (
+        <script
+          defer
+          src="https://umami.client.brightsync.co.za/script.js"
+          data-website-id="aca3e39d-aaa3-45b9-bc18-80f093d833e9"
+        />
+      )
+    }
   </head>
   <body>
     <main>
@@ -88,5 +109,5 @@ const isProd = import.meta.env.PROD;
 </html>
 
 <style is:global>
-  @import '../styles/global.css';
+  @import "../styles/global.css";
 </style>
