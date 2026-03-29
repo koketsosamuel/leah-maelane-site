@@ -17,7 +17,9 @@ const links = [
 ---
 
 <nav class:list={['nav', { overlay: isOverlay, light: isLight }]}>
-  <a href="/" class="logo">LEAH MAELANE</a>
+  <a href="/" class="logo">
+    <img src="/logo.png" alt="Leah Maelane" width="1359" height="620" />
+  </a>
   <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
     <span></span>
     <span></span>
@@ -74,11 +76,18 @@ const links = [
   }
 
   .logo {
-    font-family: var(--font-heading);
-    font-size: 22px;
-    font-weight: normal;
-    letter-spacing: 1px;
-    color: var(--color-text-dark);
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    height: 52px;
+    width: auto;
+    display: block;
+  }
+
+  .nav.overlay .logo img {
+    filter: brightness(0) invert(1);
   }
 
   .nav-links {
