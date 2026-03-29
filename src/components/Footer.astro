@@ -25,9 +25,7 @@ const { variant = 'full' } = Astro.props;
   <div class="footer-content">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" class="footer-logo">
-          <img src="/logo.png" alt="Leah Maelane" width="1359" height="620" />
-        </a>
+        <a href="/" class="footer-logo">LEAH MAELANE</a>
         {variant === 'full' ? (
           <p class="footer-tagline">South African Model &middot; Storyteller &middot; Muse</p>
         ) : (
@@ -133,15 +131,10 @@ const { variant = 'full' } = Astro.props;
   }
 
   .footer-logo {
-    display: flex;
-    align-items: center;
-  }
-
-  .footer-logo img {
-    height: 44px;
-    width: auto;
-    display: block;
-    filter: brightness(0) invert(1);
+    font-family: var(--font-heading);
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--color-light);
   }
 
   .footer-tagline {
