@@ -1,43 +1,43 @@
-# Astro Starter Kit: Minimal
+# leah-maelane-site
 
-```sh
-npm create astro@latest -- --template minimal
+Astro static site for [leahmaelane.com](https://leahmaelane.com), deployed to Cloudflare Workers with Static Assets.
+
+## Project structure
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
+├── public/              Static assets served as-is
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   └── pages/           File-based routes
+├── astro.config.mjs
+├── wrangler.jsonc       Cloudflare Worker config
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commands
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Command            | Action                                             |
+| :----------------- | :------------------------------------------------- |
+| `npm install`      | Install dependencies                               |
+| `npm run dev`      | Start local dev server at `localhost:4321`         |
+| `npm run build`    | Build production site to `./dist/`                 |
+| `npm run preview`  | Preview the build locally                          |
+| `npm run deploy`   | Build, then deploy to Cloudflare Workers           |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Deployment
 
-## 🧞 Commands
+The site is served by a Cloudflare Worker using [Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/). Configuration lives in `wrangler.jsonc`.
 
-All commands are run from the root of the project, from a terminal:
+First-time setup:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```sh
+npx wrangler login
+```
 
-## 👀 Want to learn more?
+Deploy:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```sh
+npm run deploy
+```
+
+This runs `astro build` and then `wrangler deploy`, which uploads `./dist/` to Cloudflare.
