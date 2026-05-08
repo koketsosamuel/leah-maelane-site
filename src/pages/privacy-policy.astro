@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Privacy Policy | Leah Maelane" description="Privacy policy for the Leah Maelane website, covering contact enquiries, analytics, and personal information requests.">
+  <Navigation />
+  <article class="legal-page">
+    <p class="eyebrow">Last updated: 8 May 2026</p>
+    <h1>Privacy Policy</h1>
+    <p>This website collects only the information needed to respond to modelling enquiries, maintain the website, and understand general visitor activity.</p>
+
+    <h2>Information collected</h2>
+    <p>If you contact Leah by email, phone, social profile, or the website contact form, the information you provide may include your name, contact details, company, project brief, booking dates, location, and message content. Contact form submissions are sent to the standard BrightSync contact submissions API. The site also uses privacy-friendly analytics through Umami to understand page visits and site performance.</p>
+
+    <h2>How information is used</h2>
+    <p>Information is used to respond to enquiries, assess booking requests, coordinate potential projects, improve website content, and protect the site from misuse.</p>
+
+    <h2>Sharing and retention</h2>
+    <p>Information may be shared with trusted production, management, or technical providers only when needed to handle an enquiry or operate the site. Enquiry records are kept for as long as reasonably needed for booking, administrative, or legal purposes.</p>
+
+    <h2>Your rights</h2>
+    <p>You may request access, correction, or deletion of your personal information by contacting <a href="mailto:leahmaelane14@gmail.com">leahmaelane14@gmail.com</a>.</p>
+  </article>
+  <Footer variant="simple" />
+</BaseLayout>
+
+<style>
+  .legal-page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--color-accent);
+  }
+
+  h1, h2 {
+    font-family: var(--font-heading);
+    font-weight: normal;
+    color: var(--color-text-dark);
+  }
+
+  h1 {
+    margin: 12px 0 24px;
+    font-size: clamp(32px, 5vw, 60px);
+  }
+
+  h2 {
+    margin: 32px 0 10px;
+    font-size: 26px;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  a {
+    color: var(--color-accent);
+  }
+</style>

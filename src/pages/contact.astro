@@ -25,6 +25,47 @@ import Footer from '../components/Footer.astro';
 
       <div class="gold-line"></div>
 
+      <form class="booking-form" id="contact-form" novalidate>
+        <div class="field-grid">
+          <label class="field" for="name">
+            <span>Full Name</span>
+            <input id="name" name="name" type="text" autocomplete="name" />
+          </label>
+          <label class="field" for="phone">
+            <span>Phone Number</span>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+          </label>
+        </div>
+
+        <label class="field" for="email">
+          <span>Email Address</span>
+          <input id="email" name="email" type="email" autocomplete="email" />
+        </label>
+
+        <label class="field" for="subject">
+          <span>Booking Type</span>
+          <select id="subject" name="subject">
+            <option value="">Select a booking type</option>
+            <option value="Editorial booking">Editorial booking</option>
+            <option value="Commercial campaign">Commercial campaign</option>
+            <option value="Runway show">Runway show</option>
+            <option value="Beauty or lookbook shoot">Beauty or lookbook shoot</option>
+            <option value="Brand collaboration">Brand collaboration</option>
+            <option value="General enquiry">General enquiry</option>
+          </select>
+        </label>
+
+        <label class="field" for="message">
+          <span>Project Details</span>
+          <textarea id="message" name="message" rows="5" required placeholder="Share the date, location, usage, and creative brief."></textarea>
+        </label>
+
+        <p id="form-success" class="form-message success" hidden>Your message has been sent successfully. We will be in touch soon.</p>
+        <p id="form-error" class="form-message error" hidden>Please add your message and at least one contact detail.</p>
+
+        <button id="submit-btn" type="submit" class="submit-button">SEND ENQUIRY</button>
+      </form>
+
       <!-- Contact Info -->
       <div class="contact-info">
         <div class="info-row">
@@ -116,6 +157,95 @@ import Footer from '../components/Footer.astro';
     width: 60px;
     height: 2px;
     background: var(--color-accent);
+  }
+
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: rgba(242, 236, 228, 0.65);
+    border: 1px solid rgba(200, 152, 60, 0.24);
+    padding: 24px;
+  }
+
+  .field-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .field span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--color-accent);
+    text-transform: uppercase;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    border: 1px solid rgba(122, 100, 88, 0.28);
+    background: rgba(250, 246, 240, 0.88);
+    color: var(--color-text-dark);
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 2px;
+  }
+
+  .field textarea {
+    min-height: 132px;
+    resize: vertical;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(200, 152, 60, 0.14);
+  }
+
+  .submit-button {
+    align-self: flex-start;
+    background: var(--color-text-dark);
+    color: var(--color-light);
+    padding: 13px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: background 0.3s, opacity 0.3s;
+  }
+
+  .submit-button:hover {
+    background: var(--color-accent);
+  }
+
+  .submit-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+
+  .form-message {
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .form-message.success {
+    background: rgba(67, 126, 86, 0.12);
+    color: #2E6D42;
+  }
+
+  .form-message.error {
+    background: rgba(196, 48, 43, 0.1);
+    color: #9B2925;
   }
 
   /* Contact Info */
@@ -210,9 +340,80 @@ import Footer from '../components/Footer.astro';
       padding: 24px;
     }
 
+    .field-grid {
+      grid-template-columns: 1fr;
+    }
+
     .contact-image {
       width: 100%;
       height: 400px;
     }
   }
 </style>
+
+<script>
+  const contactEndpoint = 'https://hub.brightsync.co.za/api/contact-submissions';
+
+  document.getElementById('contact-form')?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget as HTMLFormElement;
+    const submitButton = document.getElementById('submit-btn') as HTMLButtonElement | null;
+    const success = document.getElementById('form-success');
+    const error = document.getElementById('form-error');
+    const formData = new FormData(form);
+
+    const name = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const phone = String(formData.get('phone') || '').trim();
+    const subject = String(formData.get('subject') || '').trim();
+    const message = String(formData.get('message') || '').trim();
+
+    if (success) success.hidden = true;
+    if (error) error.hidden = true;
+
+    if (!message || (!name && !email && !phone)) {
+      if (error) {
+        error.textContent = 'Please add your message and at least one contact detail.';
+        error.hidden = false;
+      }
+      return;
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'SENDING...';
+    }
+
+    try {
+      const response = await fetch(contactEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          Subject: subject || 'Leah Maelane website enquiry',
+          name,
+          phone,
+          email,
+          message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Contact form submission failed');
+      }
+
+      if (success) success.hidden = false;
+      form.reset();
+    } catch {
+      if (error) {
+        error.textContent = 'Something went wrong. Please try again or contact Leah directly.';
+        error.hidden = false;
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'SEND ENQUIRY';
+      }
+    }
+  });
+</script>

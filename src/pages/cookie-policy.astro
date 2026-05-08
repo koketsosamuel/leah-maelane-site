@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Cookie Policy | Leah Maelane" description="Cookie policy for the Leah Maelane website, including analytics and browser controls.">
+  <Navigation />
+  <article class="legal-page">
+    <p class="eyebrow">Last updated: 8 May 2026</p>
+    <h1>Cookie Policy</h1>
+    <p>This site is designed to be lightweight and uses minimal third-party technology. It may use cookies or similar browser storage when required by essential browser functions, analytics, or embedded third-party services.</p>
+
+    <h2>Analytics</h2>
+    <p>Website analytics are provided by Umami through BrightSync. Analytics help understand which pages are visited and how the website performs without adding advertising trackers.</p>
+
+    <h2>Managing cookies</h2>
+    <p>You can block, delete, or manage cookies through your browser settings. Some browser settings may affect how websites remember preferences or load embedded content.</p>
+
+    <h2>Changes</h2>
+    <p>This policy should be updated whenever analytics, embedded media, booking tools, marketing pixels, or other tracking technologies change.</p>
+  </article>
+  <Footer variant="simple" />
+</BaseLayout>
+
+<style>
+  .legal-page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--color-accent);
+  }
+
+  h1, h2 {
+    font-family: var(--font-heading);
+    font-weight: normal;
+    color: var(--color-text-dark);
+  }
+
+  h1 {
+    margin: 12px 0 24px;
+    font-size: clamp(32px, 5vw, 60px);
+  }
+
+  h2 {
+    margin: 32px 0 10px;
+    font-size: 26px;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+</style>

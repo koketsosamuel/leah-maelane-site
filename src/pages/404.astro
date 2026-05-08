@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Page Not Found | Leah Maelane" description="The page you requested could not be found." noindex>
+  <Navigation />
+  <section class="not-found">
+    <p class="eyebrow">404</p>
+    <h1>Page not found</h1>
+    <p>The page may have moved, or the address may be incorrect.</p>
+    <a href="/" class="home-link">Return home</a>
+  </section>
+  <Footer variant="simple" />
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--color-accent);
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: normal;
+    color: var(--color-text-dark);
+  }
+
+  p {
+    color: var(--color-text-muted);
+  }
+
+  .home-link {
+    margin-top: 12px;
+    padding: 12px 24px;
+    background: var(--color-text-dark);
+    color: var(--color-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+</style>

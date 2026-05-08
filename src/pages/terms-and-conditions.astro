@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Terms and Conditions | Leah Maelane" description="Terms and conditions for using the Leah Maelane website.">
+  <Navigation />
+  <article class="legal-page">
+    <p class="eyebrow">Last updated: 8 May 2026</p>
+    <h1>Terms and Conditions</h1>
+    <p>By using this website, you agree to use it lawfully and respectfully. The website presents Leah Maelane's modelling portfolio, contact details, and booking information.</p>
+
+    <h2>Website content</h2>
+    <p>All images, copy, branding, and portfolio content are protected by copyright or applicable usage rights. You may not copy, publish, edit, or use portfolio images commercially without written permission from the rights holder.</p>
+
+    <h2>Bookings and information</h2>
+    <p>Information on this site is provided for general enquiry purposes. Availability, rates, usage rights, and booking terms are confirmed separately in writing for each project.</p>
+
+    <h2>External links</h2>
+    <p>The site links to external platforms such as Instagram and Facebook. Those platforms have their own terms, privacy practices, and availability.</p>
+
+    <h2>Liability</h2>
+    <p>The site is provided as-is. While reasonable care is taken to keep content accurate, Leah Maelane is not responsible for losses arising from reliance on website content or from third-party services linked from this site.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about these terms can be sent to <a href="mailto:leahmaelane14@gmail.com">leahmaelane14@gmail.com</a>.</p>
+  </article>
+  <Footer variant="simple" />
+</BaseLayout>
+
+<style>
+  .legal-page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--color-accent);
+  }
+
+  h1, h2 {
+    font-family: var(--font-heading);
+    font-weight: normal;
+    color: var(--color-text-dark);
+  }
+
+  h1 {
+    margin: 12px 0 24px;
+    font-size: clamp(32px, 5vw, 60px);
+  }
+
+  h2 {
+    margin: 32px 0 10px;
+    font-size: 26px;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  a {
+    color: var(--color-accent);
+  }
+</style>
