@@ -5,11 +5,13 @@
   "routes": [
     {
       "pattern": "leahmaelane.com",
-      "custom_domain": true
+      "custom_domain": true,
+      "zone_name": "leahmaelane.com"
     },
     {
       "pattern": "www.leahmaelane.com",
-      "custom_domain": true
+      "custom_domain": true,
+      "zone_name": "leahmaelane.com"
     }
   ],
   "assets": {
