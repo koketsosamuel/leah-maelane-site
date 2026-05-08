@@ -15,9 +15,9 @@ const {
 
 const canonicalURL = new URL(
   Astro.url.pathname,
-  Astro.site || "https://leahmaelane.com",
+  Astro.site || "https://leahmaelane.co.za",
 );
-const ogImageURL = new URL(ogImage, Astro.site || "https://leahmaelane.com");
+const ogImageURL = new URL(ogImage, Astro.site || "https://leahmaelane.co.za");
 const isProd = import.meta.env.PROD;
 ---
 
@@ -79,8 +79,8 @@ const isProd = import.meta.env.PROD;
         "@type": "Person",
         name: "Leah Maelane",
         jobTitle: "Fashion Model",
-        url: "https://leahmaelane.com",
-        image: "https://leahmaelane.com/images/portrait-beauty.jpg",
+        url: "https://leahmaelane.co.za",
+        image: "https://leahmaelane.co.za/images/portrait-beauty.jpg",
         description:
           "South African fashion model celebrating heritage through high fashion",
         address: {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://leahmaelane.com/sitemap-index.xml
+Sitemap: https://leahmaelane.co.za/sitemap-index.xml

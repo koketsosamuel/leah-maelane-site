@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://leahmaelane.com',
+  site: 'https://leahmaelane.co.za',
   output: 'static',
   trailingSlash: 'always',
   build: {

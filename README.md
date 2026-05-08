@@ -1,6 +1,6 @@
 # leah-maelane-site
 
-Astro static site for [leahmaelane.com](https://leahmaelane.com), deployed to Cloudflare Workers with Static Assets.
+Astro static site for [leahmaelane.co.za](https://leahmaelane.co.za), deployed to Cloudflare Workers with Static Assets.
 
 ## Project structure
 
